@@ -1,0 +1,134 @@
+{
+  "scenarios": 7,
+  "expectations_met": 7,
+  "total_cost_units": 45.0,
+  "cost_if_everything_called": 140.0,
+  "saved_pct": 67.9,
+  "camara_apis": [
+    "number-verification",
+    "device-status",
+    "location-verification",
+    "location-retrieval",
+    "congestion-insights",
+    "geofencing-subscriptions",
+    "quality-on-demand"
+  ],
+  "tools": [
+    "verify_number",
+    "check_roaming",
+    "verify_location",
+    "check_reachability",
+    "retrieve_location",
+    "query_congestion",
+    "watch_area",
+    "reserve_quality"
+  ],
+  "min_calls": 1,
+  "max_calls": 6,
+  "avg_calls": 3.3,
+  "levels_seen": [
+    "escalate",
+    "locate",
+    "nudge",
+    "settled"
+  ],
+  "per_scenario": [
+    {
+      "id": "group-settled",
+      "title": "Routine check, pilgrim with the group",
+      "level": "settled",
+      "expected": "settled",
+      "met": true,
+      "calls": 3,
+      "spend": 4.0,
+      "apis": [
+        "device-status",
+        "location-verification",
+        "congestion"
+      ]
+    },
+    {
+      "id": "crowd-building",
+      "title": "The next area is filling up",
+      "level": "nudge",
+      "expected": "nudge",
+      "met": true,
+      "calls": 3,
+      "spend": 4.0,
+      "apis": [
+        "device-status",
+        "location-verification",
+        "congestion"
+      ]
+    },
+    {
+      "id": "strayed-reachable",
+      "title": "Outside the zone, phone answering",
+      "level": "locate",
+      "expected": "locate",
+      "met": true,
+      "calls": 4,
+      "spend": 8.0,
+      "apis": [
+        "device-status",
+        "location-verification",
+        "location-retrieval"
+      ]
+    },
+    {
+      "id": "strayed-silent",
+      "title": "Outside the zone and unreachable",
+      "level": "escalate",
+      "expected": "escalate",
+      "met": true,
+      "calls": 6,
+      "spend": 17.0,
+      "apis": [
+        "device-status",
+        "location-verification",
+        "location-retrieval",
+        "congestion",
+        "qod"
+      ]
+    },
+    {
+      "id": "uncertain-in-crowd",
+      "title": "The network answers PARTIAL",
+      "level": "locate",
+      "expected": "locate",
+      "met": true,
+      "calls": 4,
+      "spend": 8.0,
+      "apis": [
+        "device-status",
+        "location-verification",
+        "location-retrieval"
+      ]
+    },
+    {
+      "id": "foreign-sim-roaming",
+      "title": "Still on their own foreign SIM",
+      "level": "nudge",
+      "expected": "nudge",
+      "met": true,
+      "calls": 1,
+      "spend": 1.0,
+      "apis": [
+        "device-status"
+      ]
+    },
+    {
+      "id": "enrol-at-handover",
+      "title": "Enrol a pilgrim at SIM hand-over",
+      "level": "settled",
+      "expected": "settled",
+      "met": true,
+      "calls": 2,
+      "spend": 3.0,
+      "apis": [
+        "number-verification",
+        "geofencing"
+      ]
+    }
+  ]
+}
